@@ -5,7 +5,6 @@ public class zad1 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
-    
     double temp = getValidDoubleInput(scanner, "Enter a temperature in Celsius to convert it to Fahrenheit: ");
 
     System.out.println("You entered: " + temp + "°C.");
@@ -13,6 +12,8 @@ public class zad1 {
     double temp_fahrenheit = celsiusToFahrenheit(temp);
 
     System.out.println("Temperature in Fahrenheit is: " + temp_fahrenheit + "°F.");
+
+    scanner.close();
   }
 
   public static double getValidDoubleInput(Scanner scanner, String prompt) {

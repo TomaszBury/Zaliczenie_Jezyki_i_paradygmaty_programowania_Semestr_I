@@ -1,0 +1,1 @@
+Zadanie 2. Wczytać od użytkownika 3 liczby całkowite i wypisać na ekran największą oraz najmniejszą z nich.
