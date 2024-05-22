@@ -1,7 +1,8 @@
+package Zad_6;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Zad6 {
+public class Zad_6 {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
             
