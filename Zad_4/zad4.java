@@ -25,17 +25,20 @@ public class zad4 {
         }
     }
     public static BigDecimal taxCalculation(BigDecimal income){
-        BigDecimal firstBracked = BigDecimal.valueOf(85528);
-        BigDecimal taxToBePaid = BigDecimal.valueOf(-556.02);
+        BigDecimal firstBracked = BigDecimal.valueOf(3089);
+        BigDecimal secondBracket = BigDecimal.valueOf(85528);
+        BigDecimal taxToBePaid = BigDecimal.valueOf(0);
         BigDecimal taxBase = BigDecimal.valueOf(0);
 
-        // taxToBePaid.add(income.multiply(BigDecimal.valueOf(0.18)));
-
         if (income.compareTo(firstBracked) == -1){
+            System.out.println("fsdfdsfsfds");
+            income = income.subtract(firstBracked);
+        } else if (income.compareTo(secondBracket) == -1){
+            income = income.subtract(firstBracked);
             taxToBePaid = taxToBePaid.add(income.multiply(BigDecimal.valueOf(0.18)));
-        }else{
+        } else {
             taxToBePaid = taxToBePaid.add(BigDecimal.valueOf(14839.02));
-            taxBase = income.subtract(firstBracked);
+            taxBase = income.subtract(secondBracket);
             taxToBePaid = taxToBePaid.add(taxBase.multiply(BigDecimal.valueOf(.32)));
         }
 
