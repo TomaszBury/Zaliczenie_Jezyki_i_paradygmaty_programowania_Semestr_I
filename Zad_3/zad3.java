@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class zad3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        float weight = getValidIntegerInput(scanner, "Your weight in kg:");
-        float height = getValidIntegerInput(scanner, "Your height in meters:");
+        float weight = getValidFloatInput(scanner, "Your weight in kg:");
+        float height = getValidFloatInput(scanner, "Your height in meters:");
 
         double BMI = weight / (height * height);
         BMI = roundMeSomeNumbers(BMI, 2);
@@ -23,7 +23,7 @@ public class zad3 {
         }
         
     }
-    public static float getValidIntegerInput(Scanner scanner, String prompt) {
+    public static float getValidFloatInput(Scanner scanner, String prompt) {
         float number;
         do {
           try {

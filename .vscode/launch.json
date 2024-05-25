@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "zad4",
+            "request": "launch",
+            "mainClass": "zad4",
+            "projectName": "Zaliczenie_Jezyki_i_paradygmaty_programowania_Semestr_I_e2a92c65"
+        },
+        {
+            "type": "java",
             "name": "zad3",
             "request": "launch",
             "mainClass": "Zad_3.zad3",
