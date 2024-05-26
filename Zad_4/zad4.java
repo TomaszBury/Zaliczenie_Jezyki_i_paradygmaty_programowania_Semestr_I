@@ -1,3 +1,5 @@
+package Zad_4;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.InputMismatchException;

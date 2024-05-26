@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class zad3Test {
     @Test
-    public void testTaxCalculation() {
+    public void testBMI() {
         // Test case 1: BMI 
         double height = 1.70;
         double weight = 70;

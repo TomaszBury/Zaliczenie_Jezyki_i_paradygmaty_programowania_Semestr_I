@@ -1,7 +1,7 @@
+package Zad_4;
+
 import static org.junit.Assert.assertEquals;
-
 import java.math.BigDecimal;
-
 import org.junit.Test;
 
 
