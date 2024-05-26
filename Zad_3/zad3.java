@@ -6,29 +6,21 @@ import java.util.Scanner;
 public class zad3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        float weight = getValidFloatInput(scanner, "Your weight in kg:");
-        float height = getValidFloatInput(scanner, "Your height in meters:");
+        double weight = getValidFloatInput(scanner, "Your weight in kg:");
+        double height = getValidFloatInput(scanner, "Your height in meters:");
 
-        double BMI = weight / (height * height);
+        double BMI = calculateBMI(weight, height);
         BMI = roundMeSomeNumbers(BMI, 2);
 
-        if (BMI <= 18.4){
-            System.out.println("Underweight " + String.valueOf(BMI));
-        }else if (BMI > 18.4 && BMI < 24.9) {
-            System.out.println("You are Normal. " + String.valueOf(BMI));
-        }else if (BMI >= 24.9 && BMI < 39.9){
-            System.out.println("You are Overweight. " + String.valueOf(BMI));
-        }else{
-            System.out.println("Obese " + String.valueOf(BMI));
-        }
+        System.out.println("You are: " + categoriesBMI(BMI));
         
     }
-    public static float getValidFloatInput(Scanner scanner, String prompt) {
-        float number;
+    public static double getValidFloatInput(Scanner scanner, String prompt) {
+        double number;
         do {
           try {
             System.out.print(prompt);
-            number = scanner.nextFloat();
+            number = scanner.nextDouble();
             return number; // Exit the loop if input is valid
           } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter ." + prompt);
@@ -38,5 +30,19 @@ public class zad3 {
     }
     public static double roundMeSomeNumbers(double value, int scale) {
         return Math.round(value * Math.pow(10, scale)) / Math.pow(10, scale);
+    }
+    public static double calculateBMI(double weight, double height){
+        return weight / (height * height);
+    }
+    public static String categoriesBMI(double BMI){
+        if (BMI < 18.5){
+            return "Underweight";
+        }else if (BMI >= 18.5 && BMI < 24.9) {
+            return "Normal";
+        }else if (BMI >= 25 && BMI < 29.9){
+            return "Overweight";
+        }else{
+            return "Obesity";
+        }
     }
 }
