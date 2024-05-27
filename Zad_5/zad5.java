@@ -18,15 +18,16 @@ public class zad5 {
 
         System.out.println("Principal: " + principal + " number of periods " + numberPeriods);
 
-        MathContext mc = new MathContext(4);
-
-        BigDecimal paydOfPrincipal = BigDecimal.valueOf(0.00);
+        MathContext mc = new MathContext(2);
 
         for (int i = 0; numberPeriods.compareTo(BigDecimal.valueOf(i)) > 0 ; i++){
             BigDecimal instalment = principal.divide(numberPeriods, mc);
             System.out.println("This month pricipal to pay: " + instalment);
-            paydOfPrincipal = paydOfPrincipal.add(instalment);
-            System.out.println("Paid of pricipal: " + paydOfPrincipal);
+            
+            BigDecimal intrestToPayThisMonth = principal.multiply(rate, mc);
+            principal = principal.subtract(instalment);
+            
+            System.out.println("Paid of pricipal: " + instalment + " Intrest:" + intrestToPayThisMonth);
         }
         
     }
