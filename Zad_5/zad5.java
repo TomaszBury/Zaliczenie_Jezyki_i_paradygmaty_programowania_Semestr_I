@@ -2,7 +2,9 @@ package Zad_5;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.NumberFormat;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class zad5 {
@@ -18,17 +20,44 @@ public class zad5 {
 
         System.out.println("Principal: " + principal + " number of periods " + numberPeriods);
 
+
+
+        // Create a NumberFormat instance for the desired locale (e.g., US)
+        NumberFormat nf = NumberFormat.getInstance(Locale.US);
+
+        // Set the formatting options
+        nf.setGroupingUsed(true); // Enable thousands separators
+        nf.setMinimumFractionDigits(2); // Set the minimum number of decimal places
+        nf.setMaximumFractionDigits(2); // Set the maximum number of decimal places
+            
+
         MathContext mc = new MathContext(2);
+        BigDecimal instalment = principal.divide(numberPeriods, mc);
+        BigDecimal amount =  BigDecimal.ZERO;
+        BigDecimal intrestToPayThisMonth = BigDecimal.ZERO;
+        String formattedAmount = "";
+
+        BigDecimal looserFactor = BigDecimal.ZERO;
 
         for (int i = 0; numberPeriods.compareTo(BigDecimal.valueOf(i)) > 0 ; i++){
-            BigDecimal instalment = principal.divide(numberPeriods, mc);
-            System.out.println("This month pricipal to pay: " + instalment);
             
-            BigDecimal intrestToPayThisMonth = principal.multiply(rate, mc);
+            intrestToPayThisMonth = principal.multiply(rate, mc);
+
             principal = principal.subtract(instalment);
             
-            System.out.println("Paid of pricipal: " + instalment + " Intrest:" + intrestToPayThisMonth);
+            amount =  instalment.add(intrestToPayThisMonth);
+
+            // Format the BigDecimal
+            formattedAmount = nf.format(amount);
+
+            System.out.println("Pay me: " + formattedAmount);
+
+            looserFactor = looserFactor.add(amount);
         }
+        
+        // Format the BigDecimal
+        formattedAmount = nf.format(looserFactor);
+        System.out.println("It cost you: " + formattedAmount);
         
     }
 
